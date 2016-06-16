@@ -31,41 +31,179 @@ SetBatchLines, -1
 SetWinDelay, -1
 SetMouseDelay, -1
 
+Iniwrite %A_SCriptDir%\she\Kiss.she, %A_SCriptDir%\RSSINI.ini, A1,Key1
+
 Gui, Font, S10 C000000 ,  1훈새마을운동 R
 Gui, Add, Text, x12 y13 w100 h20 , 리세마라 매크로
-Gui, Add, GroupBox, x12 y33 w110 h120 , 뽑기 기준
-Gui, Add, CheckBox, x22 y53 w80 h30 , 스타팅
-Gui, Add, CheckBox, x22 y83 w80 h30 , 궁극체
-Gui, Add, CheckBox, x22 y113 w80 h30 , 완전체
+Gui, Add, GroupBox, x12 y33 w110 h120 , 리세 기준
+Gui, Add, CheckBox, x22 y53 w80 h30 v50뽑 Checked, 50뽑
+Gui, Add, CheckBox, x22 y83 w80 h30 v500뽑, 500뽑
+Gui, Add, CheckBox, x22 y113 w80 h30 v스샷저장 Checked, 뽑기스샷저장
 Gui, Add, Button, x132 y13 w100 h20 , 리세마라 시작
 Gui, Add, Button, x132 y43 w100 h20 , 일시중지
 Gui, Add, Button, x132 y73 w100 h20 , 중지시작
 Gui, Add, Button, x132 y103 w100 h20 , 사용법
 Gui, Add, Button, x132 y133 w100 h20 , 단톡방
 ; Generated using SmartGUI Creator 4.0
-Gui, Show, x1000 y560 h168 w245, 리세마라 매크로
+Gui, Show, x300 y560 h168 w245, 리세마라 매크로
 
-Gui,선택: Add, GroupBox, x12 y13 w240 h150 , 첫 디지몬 선택
-Gui,선택: Add, CheckBox, x32 y33 w100 h30 v코로몬 Checked, 코로몬
-Gui,선택: Add, CheckBox, x32 y63 w100 h30 v뿔몬, 뿔몬
-Gui,선택: Add, CheckBox, x32 y93 w100 h30 v어니몬, 어니몬
-Gui,선택: Add, CheckBox, x132 y93 w100 h30 v둥실몬, 둥실몬
-Gui,선택: Add, CheckBox, x32 y123 w100 h30 v모티몬, 모티몬
-Gui,선택: Add, CheckBox, x132 y33 w100 h30 v토코몬, 토코몬
-Gui,선택: Add, CheckBox, x132 y63 w100 h30 v시드몬, 시드몬
-Gui,선택: Add, CheckBox, x132 y123 w100 h30 v야옹몬, 야옹몬
-Gui,선택: Show, x1260 y560 h180 w268, New GUI Window
+Gui,선택: Font, S10 C000000 ,  1훈새마을운동 R
+Gui,선택: Add, GroupBox, x12 y13 w220 h150 , 첫 디지몬 선택
+Gui,선택: Add, CheckBox, x32 y33 w80 h30 v코로몬 Checked, 코로몬
+Gui,선택: Add, CheckBox, x32 y63 w80 h30 v뿔몬, 뿔몬
+Gui,선택: Add, CheckBox, x32 y93 w80 h30 v어니몬, 어니몬
+Gui,선택: Add, CheckBox, x132 y93 w80 h30 v둥실몬, 둥실몬
+Gui,선택: Add, CheckBox, x32 y123 w80 h30 v모티몬, 모티몬
+Gui,선택: Add, CheckBox, x132 y33 w80 h30 v토코몬, 토코몬
+Gui,선택: Add, CheckBox, x132 y63 w80 h30 v시드몬, 시드몬
+Gui,선택: Add, CheckBox, x132 y123 w80 h30 v야옹몬, 야옹몬
+Gui,선택: Show, x300 y758 h178 w245, 디지몬선택
 
+Gui,리스트뷰: Font, S10 C000000 ,  1훈새마을운동 R
+Gui,리스트뷰: Add, ListVIEW, x8 y6 w372 h155,  번호 |      아이디      |     비밀번호     |    닉네임    |  진행
+Gui,리스트뷰: Show, x550 y560 h220 w400, 계정관리
+Gui,리스트뷰: Add, Button, x8 y170 w80 h30 g계정발급, 계정발급
+Gui,리스트뷰: Add, Button, x95 y170 w80 h30, 선택삭제 ;+7 간격
+Gui,리스트뷰: Add, Button, x182 y170 w80 h30 g계정설정, 계정설정
+Gui,리스트뷰: Add, Button, x269 y170 w80 h30 g로그창 v로그보기, 로그보기
+
+Gui,계정발급: Font, S10 C000000 ,  1훈새마을운동 R
+Gui,계정발급: Add, GroupBox, x12 y3 w180 h130 , 계정정보
+Gui,계정발급: Add, Edit, x82 y23 w100 h20 v발급아이디, 발급할 아이디
+Gui,계정발급: Add, Edit, x82 y63 w100 h20 v발급비밀번호, 발급할 비밀번호
+Gui,계정발급: Add, Edit, x82 y103 w100 h20 v발급닉네임, 발급할 닉네임
+Gui,계정발급: Add, Button, x62 y143 w80 h30 g계정저장, 계정저장
+Gui,계정발급: Add, Text, x12 y183 w180 h70 , 계정은 발급할 아이디`,비밀번호`,닉네임 뒤에 1~10까지`n숫자가 붙어서 만들어집니다`n무료회원 10개`n유료회원 무제한
+Gui,계정발급: Add, Text, x22 y23 w50 h20 , 아이디
+Gui,계정발급: Add, Text, x22 y63 w50 h20 , 비밀번호
+Gui,계정발급: Add, Text, x22 y103 w50 h23 , 닉네임
+
+Gui,리스트뷰: Font, S9 C000000 ,  1훈새마을운동 R
+Gui,리스트뷰: Add, ListBox, x10 y240 w380 h130 v로그, 
+Gui,리스트뷰: Add, text, x15 y220 w50 h20 , 로그
+;Gui,로그창: Show, x127 y87 h195 w489, 로그창
 Return
 
 
 
+계정저장:
+
+global 발급아이디
+global 발급비밀번호
+global 발급닉네임
+
+msgbox, 저장되었습니다.
+
+return
+
+계정설정:
+Gui,계정발급: Show,
+return
+
+로그창:
+Gui,리스트뷰: Show, x550 y560 h380 w400
+GuiControl,리스트뷰:,로그보기,로그닫기
+;닫기 := 1
+;If(닫기 = 1)
+;{
+;    Gui,리스트뷰: Show, x1250 y560 h220 w400
+;}
+;Gui,리스트뷰: Show, x1250 y560 h220 w400
+return
+
+계정발급:
+
+If(발급 = 1)
+{
+    msgbox, 이미 계정을 발급하였습니다.
+}
+
+Gui,계정발급: Submit,Nohide
+Gui,리스트뷰: Submit,Nohide
+
+IniWrite, %발급아이디%1, 계정.ini, 계정목록, 발급아이디1
+IniWrite, %발급아이디%2, 계정.ini, 계정목록, 발급아이디2
+IniWrite, %발급아이디%3, 계정.ini, 계정목록, 발급아이디3
+IniWrite, %발급아이디%4, 계정.ini, 계정목록, 발급아이디4
+IniWrite, %발급아이디%5, 계정.ini, 계정목록, 발급아이디5
+IniWrite, %발급아이디%6, 계정.ini, 계정목록, 발급아이디6
+IniWrite, %발급아이디%7, 계정.ini, 계정목록, 발급아이디7
+IniWrite, %발급아이디%8, 계정.ini, 계정목록, 발급아이디8
+IniWrite, %발급아이디%9, 계정.ini, 계정목록, 발급아이디9
+IniWrite, %발급아이디%10, 계정.ini, 계정목록, 발급아이디10
+
+IniWrite, %발급닉네임%1, 계정.ini, 계정목록, 발급닉네임1
+IniWrite, %발급닉네임%2, 계정.ini, 계정목록, 발급닉네임2
+IniWrite, %발급닉네임%3, 계정.ini, 계정목록, 발급닉네임3
+IniWrite, %발급닉네임%4, 계정.ini, 계정목록, 발급닉네임4
+IniWrite, %발급닉네임%5, 계정.ini, 계정목록, 발급닉네임5
+IniWrite, %발급닉네임%6, 계정.ini, 계정목록, 발급닉네임6
+IniWrite, %발급닉네임%7, 계정.ini, 계정목록, 발급닉네임7
+IniWrite, %발급닉네임%8, 계정.ini, 계정목록, 발급닉네임8
+IniWrite, %발급닉네임%9, 계정.ini, 계정목록, 발급닉네임9
+IniWrite, %발급닉네임%10, 계정.ini, 계정목록, 발급닉네임10
 
 
+Iniread, 발급아이디1, 계정.ini, 계정목록, 발급아이디1
+Iniread, 발급아이디2, 계정.ini, 계정목록, 발급아이디2
+Iniread, 발급아이디3, 계정.ini, 계정목록, 발급아이디3
+Iniread, 발급아이디4, 계정.ini, 계정목록, 발급아이디4
+Iniread, 발급아이디5, 계정.ini, 계정목록, 발급아이디5
+Iniread, 발급아이디6, 계정.ini, 계정목록, 발급아이디6
+Iniread, 발급아이디7, 계정.ini, 계정목록, 발급아이디7
+Iniread, 발급아이디8, 계정.ini, 계정목록, 발급아이디8
+Iniread, 발급아이디9, 계정.ini, 계정목록, 발급아이디9
+Iniread, 발급아이디10, 계정.ini, 계정목록, 발급아이디10
 
+Iniread, 발급닉네임1, 계정.ini, 계정목록, 발급닉네임1
+Iniread, 발급닉네임2, 계정.ini, 계정목록, 발급닉네임2
+Iniread, 발급닉네임3, 계정.ini, 계정목록, 발급닉네임3
+Iniread, 발급닉네임4, 계정.ini, 계정목록, 발급닉네임4
+Iniread, 발급닉네임5, 계정.ini, 계정목록, 발급닉네임5
+Iniread, 발급닉네임6, 계정.ini, 계정목록, 발급닉네임6
+Iniread, 발급닉네임7, 계정.ini, 계정목록, 발급닉네임7
+Iniread, 발급닉네임8, 계정.ini, 계정목록, 발급닉네임8
+Iniread, 발급닉네임9, 계정.ini, 계정목록, 발급닉네임9
+Iniread, 발급닉네임10, 계정.ini, 계정목록, 발급닉네임10
+global 발급 := 0
+
+While(발급 = 0)
+{
+    Lv_Add("","1번", 발급아이디1,발급비밀번호,발급닉네임1)
+    Lv_Add("","2번", 발급아이디2,발급비밀번호,발급닉네임2)
+    Lv_Add("","3번", 발급아이디3,발급비밀번호,발급닉네임3)
+    Lv_Add("","4번", 발급아이디4,발급비밀번호,발급닉네임4)
+    Lv_Add("","5번", 발급아이디5,발급비밀번호,발급닉네임5)
+    Lv_Add("","6번", 발급아이디6,발급비밀번호,발급닉네임6)
+    Lv_Add("","7번", 발급아이디7,발급비밀번호,발급닉네임7)
+    Lv_Add("","8번", 발급아이디8,발급비밀번호,발급닉네임8)
+    Lv_Add("","9번", 발급아이디9,발급비밀번호,발급닉네임9)
+    Lv_Add("","10번", 발급아이디10,발급비밀번호,발급닉네임10)
+    global 발급 := 1
+    msgbox, 계정발급이 완료되었습니다.
+}
+return
+
+
+F12::
+runwait, adb shell input text "%발급아이디1%"@naver.com,,hide
+return
+
+재시도함수()
+{    
+    If(adb서치(ClickX, ClickY, "이미지\재시도.bmp",60,0))
+	{
+		Click(ClickX, ClickY)
+	}
+}
 
 F2::
 리세마라시작:
+
+Gui,계정발급: Submit,Nohide
+Gui,리스트뷰: Submit,Nohide
+
+
 
 Global ClickX,ClickY
 Gui,Submit,Nohide
@@ -79,12 +217,13 @@ global 접속 := 0
 global 선택완료 := 0
 global 스킵:= 1
 
+리세재시작:
+
+
+
 Loop
 {
-    If(adb서치(ClickX, ClickY, "이미지\재시도.bmp",60,0))
-	{
-		Click(ClickX, ClickY)
-	}
+    재시도함수()
     
     While(접속 = 0)
     {
@@ -227,20 +366,46 @@ return
 
 텍스트입력()
 {
+    Gui,계정발급:Submit,Nohide
+    Gui,리스트뷰:Submit,Nohide
+    Global 발급아이디1
+    Global 발급아이디2
+    Global 발급아이디3
+    Global 발급아이디4
+    Global 발급아이디5
+    Global 발급아이디6
+    Global 발급아이디7
+    Global 발급아이디8
+    Global 발급아이디9
+    Global 발급아이디10
+    
+    Global 발급비밀번호
+    
+    Global 발급닉네임1
+    Global 발급닉네임2
+    Global 발급닉네임3
+    Global 발급닉네임4
+    Global 발급닉네임5
+    Global 발급닉네임6
+    Global 발급닉네임7
+    Global 발급닉네임8
+    Global 발급닉네임9
+    Global 발급닉네임10
+    
     If(리세 = 1)
     {
         Click(374,176) ;아이디
-        runwait, adb shell input text "hfltpakfk03@naver.com",,hide
+        runwait, adb shell input text "%발급아이디1%"@naver.com,,hide
         Sleep,1000
         Click(743,441) ;확인
         Sleep,2000
         Click(364,223) ;비밀번호
-        runwait, adb shell input text "haozmfhqlqjs1",,hide
+        runwait, adb shell input text "%발급비밀번호%",,hide
         Sleep,1000
         Click(743,441) ;확인
         Sleep,2000
         Click(378,278) ;비밀번호확인
-        runwait, adb shell input text "haozmfhqlqjs1",,hide
+        runwait, adb shell input text "%발급비밀번호%",,hide
         Sleep,1000
         Click(743,441) ;확인
         Sleep,2000
@@ -260,12 +425,12 @@ return
             If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
             {
                 Click(416,176) ; 이메일
-                runwait, adb shell input text "hfltpakfk03@naver.com",,hide
+                runwait, adb shell input text "%발급아이디1%"@naver.com,,hide
                 Sleep,1000
                 Click(743,441) ;확인
                 Sleep,1000
                 Click(447,227) ; 패스워드
-                runwait, adb shell input text "haozmfhqlqjs1",,hide
+                runwait, adb shell input text "%발급비밀번호%",,hide
                 Sleep,1000
                 Click(743,441) ;확인
                 Sleep,1000
@@ -280,12 +445,13 @@ return
         {
             Click(392,230) ;닉네임입력
             Sleep,1000
-            runwait, adb shell input text "HReset3",,hide
+            runwait, adb shell input text "%발급닉네임1%",,hide
             Click(743,441) ;확인
             Sleep,1000
             Click(400,318) ;닉네임확인
             Sleep,2000
             디지몬선택 := 1
+            global 리세 := 리세 + 1
             return
         }
     }
@@ -293,204 +459,919 @@ return
     
     If(리세 = 2)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디2%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디2%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임2%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 3)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디3%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디3%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임3%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 4)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디4%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디4%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임4%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 5)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디5%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디5%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임5%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 6)
     {
-       runwait,  adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디6%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디6%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임6%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 7)
     {
-       runwait,  adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디7%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디7%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임7%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 8)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디8%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디8%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임8%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 9)
     {
-        runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디9%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디9%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임9%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
     
     If(리세 = 10)
     {
-       runwait, adb shell input text "hfltpakfk02@naver.com",,hide
+        Click(374,176) ;아이디
+        runwait, adb shell input text "%발급아이디10%"@naver.com,,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(364,223) ;비밀번호
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        Click(378,278) ;비밀번호확인
+        runwait, adb shell input text "%발급비밀번호%",,hide
+        Sleep,1000
+        Click(743,441) ;확인
+        Sleep,2000
+        If(adb서치(ClickX, ClickY, "이미지\회원등록.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,2000
+            Click(401,320)
+            Sleep,2000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(577,133) ;나가기
+            Sleep,1000
+            Click(400,260) ; 반다이계정으로로그인
+            Sleep,1000
+            
+            If(adb서치(ClickX, ClickY, "이미지\로그인.bmp",60,0))
+            {
+                Click(416,176) ; 이메일
+                runwait, adb shell input text "%발급아이디10%"@naver.com,,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(447,227) ; 패스워드
+                runwait, adb shell input text "%발급비밀번호%",,hide
+                Sleep,1000
+                Click(743,441) ;확인
+                Sleep,1000
+                Click(300,308) ;로그인
+                닉네임입력 := 1
+            }
+        }
+            
+        
+        If(adb서치(ClickX, ClickY, "이미지\닉네임.bmp",60,0)
+        ||닉네임입력 = 1)
+        {
+            Click(392,230) ;닉네임입력
+            Sleep,1000
+            runwait, adb shell input text "%발급닉네임10%",,hide
+            Click(743,441) ;확인
+            Sleep,1000
+            Click(400,318) ;닉네임확인
+            Sleep,2000
+            디지몬선택 := 1
+            global 리세 := 리세 + 1
+            return
+        }
     }
+    return
 }
 
 
 
+스킵함수()
+{
+    While(adb서치(ClickX, ClickY, "이미지\스킵완료.bmp",60,0)
+    ||adb서치(ClickX, ClickY, "이미지\깜몬.bmp",60,0) && (스킵 = 1))
+    {
+        Loop, 20
+        {
+            Click(674,396)
+        }
+    }
+}
 
+
+Insert::
+return
 
 F8::
 퀘스트진행:
 Global 스킵 := 1
 global 무속성코어받음 := 0
 global 첫번째디지바이스 := 1
+global ClickX, ClickY
 
 Loop
 {
-
-    While(adb서치(ClickX, ClickY, "이미지\스킵완료.bmp",60,0)
-    ||adb서치(ClickX, ClickY, "이미지\깜몬.bmp",60,0) && (스킵 = 1))
-    {
-        Click(674,396)
-    }
-
-    If(adb서치(ClickX, ClickY, "이미지\디지바이스.bmp",60,0)
-    && 첫번째디지바이스 := 1)
-    {
-        Click(45,429)
-        첫번째디지바이스 := 2
-    }
     
-    If(adb서치(ClickX, ClickY, "이미지\코로몬.bmp",60,0))
-    {
-        Click(ClickX,ClickY)
-        Sleep,1000
-        Click(752,154)
-        Sleep,1000
-    }
+    재시도함수()
+    스킵함수()
     
-    If(adb서치(ClickX, ClickY, "이미지\도시락.bmp",60,0))
-    {
-        Click(ClickX,ClickY)
-        Sleep,1000
-        Click(187,441)
-        Sleep,1000
-        Click(347,319)
-    }
     
-    If(adb서치(ClickX, ClickY, "이미지\진화.bmp",60,0))
-    {
-        Click(ClickX, ClickY)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\무속성코어.bmp",60,0)
-        && 무속성코어받음 = 0)
-    {
-        Click(ClickX, ClickY)
-        Sleep,1000
-        Click(441,148)
-        Sleep,1000
-        Click(180,445)
-        Sleep,1000
-        Click(348,319)
-        무속성코어받음 := 1
-        ;msgbox, 받음
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\진화확인.bmp",60,0,614,392,775,460))
-    {
-        Click(700,426) ; 진화확인
-        Sleep,1000
-        Click(773,57) ;x표
-        Sleep,1000
-        Click(773,57) ; x표
-        Sleep,1000
-        Click(287,431) ;상점클릭
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\디지몬소환.bmp",60,0)
-    ||adb서치(ClickX, ClickY, "이미지\랜덤디지몬.bmp",60,0))
-    {
-        Click(ClickX, ClickY)
-        Sleep,1000
-        Click(344,316)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\성숙기.bmp",60,0))
-    {
-        Click(ClickX, ClickY)
-        Sleep,1000
-        Click(462,317)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\x표시.bmp",60,0))
-    {
-        Click(771, 58)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\디지바이스.bmp",60,0)
-    && 첫번째디지바이스 = 2) ; 두번째 디지바이스클릭
-    {
-        Click(45,429) ; 디지바이스클릭
-        Sleep,1000
-        Click(475,247) ; 성숙기디지몬클릭
-        Sleep,1000
-        Click(406,437)
-        Sleep,1000
-        Click(45,270)
-        Sleep,1000
-        Click(300,300)
-        Sleep,1000
-        Click(774,59)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\모험입장.bmp",60,0))
-    {
-        Click(ClickX, ClickY)
-        Sleep,1000
-        Click(444,355)
-        Sleep,1000
-        Click(460,201)
-        Sleep,1000
-        Click(540,439) ; 이상함
-        Sleep,1000
-        
-        ;;수정필요
-        If(adb서치(ClickX, ClickY, "이미지\x2.bmp",60,0))
-        {
-            Click(ClickX, ClickY)
-        }
-        
-        ;;;수정필요
-        If(adb서치(ClickX, ClickY, "이미지\스킬사용.bmp",60,0))
-        {
-            Click(ClickX, ClickY)
-        }
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\메인화면.bmp",60,0))
-    {
-        Click(ClickX, ClickY)
-    }
-    
-    If(adb서치(ClickX, ClickY, "이미지\신규유저.bmp",60,0))
-    {
-        adbKey(ESC)
-        Sleep,1000
-        adbkey(ESC)
-        Sleep,1000
-        adbkey(ESC)
-        Gosub, 루비얻기
-    }
+    퀘스트진행함수()
 }
 return
+
+
+퀘스트진행함수()
+{
+    If(adb서치(ClickX, ClickY, "이미지\스킵시작.bmp",60,0))
+    {
+        스킵함수()
+    }
+    
+    If(adb서치(ClickX, ClickY, "이미지\디지바이스.bmp",60,0))
+    {
+        스킵 := 0
+        Click(45,426)
+        Sleep,1000
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,100
+        Click(674,396)
+        Sleep,1000
+        ;8번
+        
+        Click(372,259) ; 코로몬클릭
+        Sleep,1000
+        Click(754,152) ; 합성클릭
+        Sleep,1000
+        
+        Click(600,365) ; 스킵
+        Sleep,100
+        Click(600,365)
+        Sleep,100
+        Click(600,365)
+        Sleep,100
+        Click(600,365)
+        Sleep,1000
+        
+        If(adb서치(ClickX, ClickY, "이미지\도시락.bmp",60,0))
+        {
+            Click(ClickX, ClickY)
+            Sleep,1000
+            Click(188,443)
+            Sleep,1000
+            Click(345,320)
+            Sleep,3000
+            
+            Click(600,365) ; 스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;7번 + (1번)
+            
+            Click(752,200) ; 진화
+            Sleep,1000
+            
+            Click(600,365) ; 스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            ;6번 + (1번)
+            
+            Click(43,314) ; 무속디지코어
+            Sleep,500
+            Click(430,144) ; 무속디지코어2
+            Sleep,500
+            Click(180,440) ; 진화버튼
+            Sleep,1000
+            Click(344,316) ; 진화확인버튼
+            Sleep,5000 ; 진화대기
+            
+            Click(600,365) ; 스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;14번 + 1번
+            
+            Click(700,432) ; 진화마지막 우측하단 확인클릭
+            Sleep,1000
+            Click(772,64) ;x클릭
+            Sleep,1000
+            Click(772,64) ;x클릭 두번째
+            Sleep,1000
+            Click(289,436) ; 상점클릭
+            Sleep,1000
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;6번 + 0번
+            
+            Click(108,247) ;디지몬소환 클릭
+            Sleep,500
+            Click(350,321) ;구매확인
+            Sleep,4000
+            
+            Click(300,300) ; 아무데나클릭
+            Sleep,1000
+            Click(460,322) ; 받기
+            Sleep,1000
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;2번 + 0번
+            
+            Click(772,58) ;x표시 (상점나가기)
+            Sleep,1000
+            Click(45,431) ; 디지바이스클릭
+            Sleep,1000
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;2번 + 0번
+            
+            Click(465,238) ; 성숙기디지몬클릭
+            Sleep,1000
+            Click(400,440) ; 팀배치 클릭
+            Sleep,1000
+            Click(42,270)
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;2번 + 0번
+            
+            Click(772,64) ; x표시 디지바이스나가기
+            Sleep,1000
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,100
+            Click(600,365)
+            Sleep,1000
+            ;12번 + 0번
+            
+            Click(720,445) ;모험입장 클릭
+            Sleep,1000
+            Click(440,359) ; 숲지역 클릭
+            Sleep,1000
+            Click(455,220) ; 숲-연습클릭
+            Sleep,1000
+            Click(533,440) ; 시작하기
+            Sleep,1000
+            
+            Click(600,365) ;스킵
+            Sleep,100
+            Click(600,365)
+            Sleep,7000
+            
+            If(adb서치(ClickX, ClickY, "이미지\깜몬등장.bmp",60,0))
+            {
+                Click(600,365) ;스킵
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,1500
+                
+                Click(420,378) ; 꼬마불꽃클릭
+                Sleep,35000 ; 대기시간
+                
+            }
+            
+            If(adb서치(ClickX, ClickY, "이미지\깜몬등장.bmp",60,0))
+            {
+                Click(600,365) ;스킵
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,100
+                Click(600,365)
+                Sleep,1000
+                Click(683,345) ; 메인화면
+                Sleep,5000
+                
+                If(adb서치(ClickX, ClickY, "이미지\신규유저.bmp",60,0))
+                {
+                    AdbKey(ESC)
+                    Sleep,1000
+                    AdbKey(ESC)
+                    Sleep,1000
+                    AdbKey(ESC)
+                    Sleep,1000
+                    Gosub, 루비얻기
+                }
+            }
+        }
+    }
+}
 
 
 F9::
 루비얻기:
 Global 모험끝 := 0
+global 모험횟수 := 0
     
 Loop
 {
@@ -512,14 +1393,20 @@ Loop
         Sleep,500
         Click(541,439)
         Sleep,1000
+    }
     
-        If(adb서치(ClickX, ClickY, "이미지\자동스킬.bmp",60,0))
-        {
-            Click(ClickX, ClickY)
-        }
+    If(adb서치(ClickX, ClickY, "이미지\자동스킬.bmp",60,0))
+    {
+        Click(ClickX, ClickY)
+    }
+    
+    If(adb서치(ClickX, ClickY, "이미지\X2.bmp",60,0))
+    {
+        Click(ClickX, ClickY)
     }
 
-    If(adb서치(ClickX, ClickY, "이미지\결과.bmp",60,0))
+    If(adb서치(ClickX, ClickY, "이미지\결과.bmp",60,0)
+    && (모험횟수 < 6)) ;모험횟수가 6판 미만일때는 계속 게임을 시작,진행
     {
         Click(405,315)
         Sleep,500
@@ -529,14 +1416,32 @@ Loop
     If(adb서치(ClickX, ClickY, "이미지\시작하기.bmp",60,0))
     {
         Click(ClickX, ClickY)  
+        모험횟수 := 모험횟수 + 1 ; 시작하기를 누를때마다 모험횟수가 1 올라감
+        Sleep,1000
     }
     
-    If(adb서치(ClickX, ClickY, "이미지\패배.bmp",60,0))
+    If(adb서치(ClickX, ClickY, "이미지\결과.bmp",60,0)
+    && (모험횟수 = 6)) ; 모험횟수가 6판일 경우 메인화면으로 이동
     {
-        Click(682,343)
+        Click(684,344) ;메인화면좌표
+        Sleep,1000
+        
         모험끝 := 1
         Gosub, 업적받기
     }
+    
+    
+    
+    ;If(adb서치(ClickX, ClickY, "이미지\3레벨.bmp",60,0)) ;3레벨 = 60루비
+    ;{
+    ;    Click(400,317)
+    ;    Sleep,1000
+    ;    Click(686,344)
+    ;    Sleep,1000
+    ;    
+    ;    모험끝 := 1
+    ;    Gosub, 업적받기
+    ;}
 }
 return
 
@@ -560,13 +1465,13 @@ Loop
         Sleep,500
         Click(713,182)
         Sleep,1000
-        Click(710,247)
+        Click(710,247) ; 소환권
         Sleep,1000
-        Click(710,315)
+        Click(710,315) ; 20루비
         Sleep,1000
-        Click(710,315)
+        Click(710,315) ; 20루비
         Sleep,1000
-        Click(710,315)
+        Click(710,315) ; 20루비
         Sleep,1000
         adbkey(Esc)
         루비다받음 := 1
@@ -575,12 +1480,22 @@ Loop
     If(adb서치(ClickX, ClickY, "이미지\메일.bmp",60,0)
     && 루비다받음 = 1)
     {
-        Click(ClickX, ClickY)
+        Click(ClickX, ClickY) ;메일클릭
         Sleep,500
-        Click(300,119)
+        Click(300,119) ;캐시클릭
         Sleep,500
-        Click(400,398)
+        Click(400,398) ;모두받기
         Sleep,1000
+        
+        Click(511,115) ;소환권클릭
+        Sleep,1000
+        Click(632,187) ;디지몬소환권받기
+        Sleep,5500 ;뽑기대기
+        뽑기캡쳐1()
+        Sleep,2000
+    
+        Click(300,300) ;아무데나클릭
+        Sleep,2000
         
         If(adb서치(ClickX, ClickY, "이미지\모두받음.bmp",60,0))
         {
@@ -593,8 +1508,9 @@ Loop
     && 루비다받음 := 2) ;수정해야함
     {
         Click(ClickX, ClickY)
+        Sleep,2000
         
-        If(adb서치(ClickX, ClickY, "이미지\6월특별패키지.bmp",60,0)) ;수정해야함
+        If(adb서치(ClickX, ClickY, "이미지\6월특별패키지.bmp",60,0))
         {
             adbkey(ESC)
             Sleep,1000
@@ -602,15 +1518,201 @@ Loop
             Sleep,500
             Click(350,316)
             
+            Sleep,5500
+            뽑기캡쳐2()
             Sleep,3000
             Click(300,300)
+            Sleep,1000
             
-;            스타팅판단()
+            AdbKey(ESC)
+            Sleep,1000
+            AdbKey(ESC)
+            Sleep,1000
+            Click(346,320)
+            Sleep,1000
+            
+            데이터지우기()
         }
     }
 }
 return
 
+F5::
+뽑기캡쳐1()
+{
+    
+Gui,Submit,Nohide
+    
+    If 리세 = 1
+    {
+        Global 뽑기스샷 := "뽑기결과\1번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+    If(리세 = 2)
+    {
+        Global 뽑기스샷 := "뽑기결과\2번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 3)
+    {
+        Global 뽑기스샷 := "뽑기결과\3번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 4)
+    {
+        Global 뽑기스샷 := "뽑기결과\4번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 5)
+    {
+        Global 뽑기스샷 := "뽑기결과\5번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 6)
+    {
+        Global 뽑기스샷 := "뽑기결과\6번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 7)
+    {
+        Global 뽑기스샷 := "뽑기결과\7번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 8)
+    {
+        Global 뽑기스샷 := "뽑기결과\8번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 9)
+    {
+        Global 뽑기스샷 := "뽑기결과\9번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 10)
+    {
+        Global 뽑기스샷 := "뽑기결과\10번계정.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+
+    
+}
+return
+
+뽑기캡쳐2()
+{
+    
+Gui,Submit,Nohide
+    
+    If 리세 = 1
+    {
+        Global 뽑기스샷 := "뽑기결과\1번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+    If(리세 = 2)
+    {
+        Global 뽑기스샷 := "뽑기결과\2번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 3)
+    {
+        Global 뽑기스샷 := "뽑기결과\3번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 4)
+    {
+        Global 뽑기스샷 := "뽑기결과\4번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 5)
+    {
+        Global 뽑기스샷 := "뽑기결과\5번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 6)
+    {
+        Global 뽑기스샷 := "뽑기결과\6번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 7)
+    {
+        Global 뽑기스샷 := "뽑기결과\7번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 8)
+    {
+        Global 뽑기스샷 := "뽑기결과\8번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 9)
+    {
+        Global 뽑기스샷 := "뽑기결과\9번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+    
+        If(리세 = 10)
+    {
+        Global 뽑기스샷 := "뽑기결과\10번계정2.png"
+        RunWait, adb shell screencap -p /sdcard/bg.png,,hide
+        RunWait, adb pull /sdcard/bg.png %뽑기스샷%,,hide
+        ;msgbox, %뽑기스샷%
+    }
+}
+return
 
 ;스타팅판단() ;다른것부터 만들어야함
 ;{
@@ -664,7 +1766,13 @@ F11::
                     AdbKey(esc)
                     Sleep,500
                     데이터삭제완료 := 1
-                    Gosub, 리세마라시작
+                    
+                    로그("@데이터삭제 : 완료")
+                    
+                    Gosub, 리세재시작
+                    
+                    로그("@리세재시작 : 시작")
+                    
                 }
             }
         }
@@ -672,14 +1780,26 @@ F11::
 }
 return
 
+로그(log)
+{
+    WinGet, Title, ID, MEmu 2.6.5 - MEmu
+    global ClickX, ClickY
+	formattime , nowtime,,HH:mm:ss
+	GuiControl,리스트뷰:,로그, 【%nowtime%】 %log% 좌표 : %ClickX% : %ClickY%
+	return
+}
+
 adbKey(ESC)
 {
     runwait, adb shell input keyevent 4,,hide
+    로그("@키입력 : ESC")
 }
 
 Click(ClickX, ClickY)
 {
-RunWait, adb shell input tap %ClickX% %ClickY%,,hide
+    RunWait, adb shell input tap %ClickX% %ClickY%,,hide
+    ;log := @클릭  X좌표 %ClickX% Y좌표 %ClickY%
+    ;로그("")
 }
 
 
@@ -690,6 +1810,8 @@ adb서치(ByRef ClickX, ByRef ClickY, Image, errorRange, trans, sX = 0, sY = 0, 
     WinGet, Title, ID, MEmu 2.6.5 - MEmu
     If(Gdip_ImageSearchWithHwnd(Title, ClickX, ClickY, Image, errorRange, trans, sX, sY, eX, eY))
     {
+        log := "@이미지서치 : %Image% 서치완료"
+        로그(log)
         return true
     }
 }
