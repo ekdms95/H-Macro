@@ -11,7 +11,7 @@ SkinForm(Param1 = "Apply", DLL = "", SkinName = ""){
         DllCall(DLL . "\USkinExit")
         }
 }
-
+;
 
 Gui,인증: Add, Edit, x12 y63 w90 h20 vId +Center, 아이디
 Gui,인증: Add, Edit, x12 y93 w90 h20 vPW +Password* + Center, 비밀번호
